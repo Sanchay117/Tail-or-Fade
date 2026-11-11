@@ -150,7 +150,7 @@ Six reports from building this, in `feedback/`:
 
 ## X posts
 
-- _link to post 1 goes here_
+- [Every dreamDEX perps trader is now a button](https://x.com/eepy_engineer/status/2120496616151138393)
 - _link to post 2 goes here_
 - _link to post 3 goes here_
 
