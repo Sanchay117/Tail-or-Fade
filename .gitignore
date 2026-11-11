@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+node_modules/
+_ref/
+data/
+web/dist/
+notes/
+film/node_modules/
+film/out/
+film/public/
+
+.DS_Store
+*.log
+CLAUDE.md

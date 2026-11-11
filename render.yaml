@@ -1,0 +1,19 @@
+# Render Blueprint: one free Docker web service running the API, Reactivity watcher, mirror worker
+# and the built web app. Free instances have no disk, so every boot re-seeds follows from
+# SEED_STATE_B64, and they sleep after 15 minutes without inbound requests: point an uptime
+# pinger at /api/health every 5 to 10 minutes to keep the worker running.
+services:
+  - type: web
+    name: tail-or-fade
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: false
+    envVars:
+      - key: NETWORK
+        value: hideki
+      - key: MASTER_KEY
+        sync: false
+      - key: SEED_STATE_B64
+        sync: false
