@@ -151,8 +151,8 @@ Six reports from building this, in `feedback/`:
 ## X posts
 
 - [Every dreamDEX perps trader is now a button](https://x.com/eepy_engineer/status/2120496616151138393)
-- _link to post 2 goes here_
-- _link to post 3 goes here_
+- [How a trade gets mirrored, with the first order on chain](https://x.com/eepy_engineer/status/2120497210131698123)
+- [Copy-trading apps give you one button. We built the other one.](https://x.com/eepy_engineer/status/2120497254733852675)
 
 ## Known limits
 
