@@ -46,7 +46,10 @@ function stats() {
 const app = new Hono();
 app.use("/api/*", cors());
 
-app.get("/api/health", (c) => c.json({ ok: true, network: net.name, ...stats() }));
+const startedAt = Date.now();
+app.get("/api/health", (c) =>
+  c.json({ ok: true, network: net.name, upMinutes: Math.round((Date.now() - startedAt) / 60_000), ...stats() }),
+);
 app.get("/api/stats", (c) => c.json(stats()));
 
 app.get("/api/leaders", async (c) => {
@@ -230,6 +233,15 @@ void leaderboard().catch((e) => console.error("[leaders]", e.message));
 await loops();
 serve({ fetch: app.fetch, port: PORT });
 console.log(`[server] tail-or-fade on :${PORT}, network ${net.name}, ${store.follows().length} follows loaded`);
+
+// Render's free plan sleeps a service after 15 minutes without inbound requests, and the
+// worker's own WebSocket to Somnia does not count. Calling our public URL every 10 minutes
+// goes back in through Render's edge, which does count. Render sets RENDER_EXTERNAL_URL.
+const selfUrl = process.env.RENDER_EXTERNAL_URL;
+if (selfUrl) {
+  setInterval(() => void fetch(`${selfUrl}/api/health`).catch(() => {}), 10 * 60_000);
+  console.log(`[server] keep-awake ping to ${selfUrl}/api/health every 10 min`);
+}
 
 for (const sig of ["SIGINT", "SIGTERM"] as const) {
   process.on(sig, async () => {

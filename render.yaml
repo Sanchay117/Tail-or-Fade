@@ -1,7 +1,7 @@
 # Render Blueprint: one free Docker web service running the API, Reactivity watcher, mirror worker
 # and the built web app. Free instances have no disk, so every boot re-seeds follows from
-# SEED_STATE_B64, and they sleep after 15 minutes without inbound requests: point an uptime
-# pinger at /api/health every 5 to 10 minutes to keep the worker running.
+# SEED_STATE_B64, and they sleep after 15 minutes without inbound requests. The server pings
+# its own RENDER_EXTERNAL_URL every 10 minutes to stay awake; /api/health reports upMinutes.
 services:
   - type: web
     name: tail-or-fade

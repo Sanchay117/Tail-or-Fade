@@ -4,7 +4,7 @@
 
 Tail a trader and your dreamDEX account copies their position changes. Fade them and it takes the other side of every move. Somnia Reactivity pushes each change to us as it lands on chain, and a bot key that only you can revoke places the matching order in your own account.
 
-- Live app: _link goes here after deploy_
+- Live app: https://tail-or-fade.onrender.com (free plan: if it has been asleep, the first load takes about a minute)
 - Demo video: https://youtu.be/CzdpEgY47DU
 - Code: https://github.com/Sanchay117/Tail-or-Fade
 - Network: Somnia Tokyo testnet (Hideki, chain 50383), where dreamDEX perps run today
@@ -158,6 +158,7 @@ Six reports from building this, in `feedback/`:
 
 - Testnet only, because that is where dreamDEX perps are.
 - One worker process. Running two against the same data would place every order twice.
+- The hosted demo runs on Render's free plan, which has no disk. Each restart reloads the follows from `SEED_STATE_B64`, so a follow started on the hosted site lasts until the next restart. Because the worker mirrors positions rather than orders, a restart never doubles an order: it re-syncs each follower to where its leader is now.
 - A linked bot can place, cancel and reduce, but cannot arm stop orders or change leverage, so followers inherit the account's existing leverage settings.
 
 ## License
