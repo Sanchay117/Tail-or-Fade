@@ -14,7 +14,7 @@ Built for the dreamDEX Perps Builder Bounty (MVP track).
 ## Who it is for
 
 - **Traders who don't want to read charts all day.** Find someone who is up this week and ride along at the leverage you pick.
-- **Traders who think the crowd is wrong.** 733 of the 1,074 accounts that traded dreamDEX perps this week are down. Fade one and their losing streak becomes your trade.
+- **Traders who think the crowd is wrong.** In the week to Nov 9, 733 of the 1,074 accounts that traded dreamDEX perps were down. Fade one and their losing streak becomes your trade.
 - **Leaders and their crowd.** Every trader page has a share-to-X button that posts who you are tailing or fading, with their week, so each follow can bring in the next one. Every follower adds orders to the book.
 
 Each leader trade becomes one order per follower. That is the loop: more follows mean more perps orders on dreamDEX from the same number of decisions.
